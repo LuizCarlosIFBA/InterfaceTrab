@@ -54,6 +54,11 @@ public class TelaAluno extends javax.swing.JFrame {
         textNome1 = new javax.swing.JTextField();
         labelEndereco1 = new javax.swing.JLabel();
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        labelNome7 = new javax.swing.JLabel();
+        tituloTela2 = new javax.swing.JLabel();
+        textNome3 = new javax.swing.JTextField();
+        labelNome8 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela de Aluno");
@@ -64,7 +69,7 @@ public class TelaAluno extends javax.swing.JFrame {
         });
 
         tituloTela.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        tituloTela.setText("Cadastro de alunos");
+        tituloTela.setText("Matricula do alunos");
 
         labelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelNome.setText("Nome");
@@ -131,6 +136,23 @@ public class TelaAluno extends javax.swing.JFrame {
         jFormattedTextField3.setToolTipText("");
         jFormattedTextField3.setName("campoCelular"); // NOI18N
 
+        labelNome7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNome7.setText("Login");
+        labelNome7.setName("login"); // NOI18N
+
+        tituloTela2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        tituloTela2.setText("Credenciais de acesso");
+
+        textNome3.setName("campoLogin"); // NOI18N
+        textNome3.setOpaque(true);
+
+        labelNome8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNome8.setText("Senha");
+        labelNome8.setName("senha"); // NOI18N
+
+        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setName("senha"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,6 +165,15 @@ public class TelaAluno extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelNome7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textNome3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(labelNome8)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(labelNome3)
@@ -163,9 +194,12 @@ public class TelaAluno extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelEndereco)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tituloTela2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelEndereco)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(labelEndereco1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,17 +229,23 @@ public class TelaAluno extends javax.swing.JFrame {
                     .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelEndereco)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(labelEndereco1)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelEndereco)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(tituloTela2)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNome7)
+                    .addComponent(textNome3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNome8)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(botaoSalvar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
-
-        labelEndereco.getAccessibleContext().setAccessibleName("Endereço");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -272,6 +312,7 @@ public class TelaAluno extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelEndereco;
     private javax.swing.JLabel labelEndereco1;
@@ -279,9 +320,13 @@ public class TelaAluno extends javax.swing.JFrame {
     private javax.swing.JLabel labelNome1;
     private javax.swing.JLabel labelNome2;
     private javax.swing.JLabel labelNome3;
+    private javax.swing.JLabel labelNome7;
+    private javax.swing.JLabel labelNome8;
     private javax.swing.JTextArea textEndereco;
     private javax.swing.JTextField textNome;
     private javax.swing.JTextField textNome1;
+    private javax.swing.JTextField textNome3;
     private javax.swing.JLabel tituloTela;
+    private javax.swing.JLabel tituloTela2;
     // End of variables declaration//GEN-END:variables
 }
