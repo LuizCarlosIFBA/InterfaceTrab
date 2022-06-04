@@ -1,35 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Negocio;
 
+import java.util.Date;
 /**
- *
- * @author ANA
+ * Escreva uma descrição da classe Aluno aqui.
+ * @author (seu nome) 
+ * @version (um número da versão ou uma data)
  */
-public class Aluno {
-    private String nome;
-    private int matricula;
-    private String curso;
-    private int turno;
-
-    public Aluno(String nome, int matricula, String curso, int turno) {
-        this.nome = nome;
-        this.matricula = matricula;
-        this.curso = curso;
-        this.turno = turno;
+public class Aluno
+{
+    private String cpf, nome, endereco, email, celular;
+    private Date dataIngresso;
+    
+    public Date getDataIngresso() {
+        return dataIngresso;
     }
 
-    public int getTurno() {
-        return turno;
-    }
-
-    public void setTurno(int turno) {
-        this.turno = turno;
+    public void setDataIngresso(Date dataIngresso) {
+        this.dataIngresso = dataIngresso;
     }
     
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
     public String getNome() {
         return nome;
@@ -39,21 +35,37 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public int getMatricula() {
-        return matricula;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getCurso() {
-        return curso;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCurso(String curso) {
-        this.curso = curso;
+    public void setEmail(String email) {
+        this.email = email;
     }
-    
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public Aluno(String cpf, String nome, String endereco, String email, String celular, Date dataIngresso) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.email = email;
+        this.celular = celular;
+        this.dataIngresso = dataIngresso; 
+    }
     
 }
