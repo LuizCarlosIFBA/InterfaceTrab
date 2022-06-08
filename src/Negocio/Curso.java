@@ -5,10 +5,6 @@
  */
 package Negocio;
 
-/**
- *
- * @author ANA
- */
 public class Curso {
    private String nomeCurso;
 

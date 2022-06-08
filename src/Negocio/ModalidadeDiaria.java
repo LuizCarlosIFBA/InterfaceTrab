@@ -1,11 +1,5 @@
 import java.util.Date;
 
-/**
- * Escreva uma descrição da classe ModalidadeDiaria aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
 public class ModalidadeDiaria extends Modalidade
 {   private Date dia;
     

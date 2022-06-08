@@ -1,13 +1,7 @@
 
-/**
- * Escreva uma descrição da classe Modalidade aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
 public class Modalidade
 {
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
+    
    
     private String nome;
     private float preco;

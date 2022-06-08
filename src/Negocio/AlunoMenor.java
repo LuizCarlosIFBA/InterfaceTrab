@@ -1,12 +1,7 @@
 
 import Negocio.Aluno;
 import java.util.Date;
-/**
- * Escreva uma descrição da classe AlunoMenor aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
+
 public class AlunoMenor extends Aluno
 {   private Responsavel responsavel;
     

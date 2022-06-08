@@ -1,10 +1,5 @@
 
-/**
- * Escreva uma descrição da classe Resonsavel aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
+
 public class Responsavel
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio

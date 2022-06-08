@@ -1,13 +1,6 @@
-
 import Negocio.Aluno;
 
 
-/**
- * Escreva uma descrição da classe Matricula aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
 public class Matricula
 {   private Aluno aluno;
     private Modalidade modalidade;
