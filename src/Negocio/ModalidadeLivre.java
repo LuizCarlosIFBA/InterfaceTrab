@@ -1,5 +1,12 @@
-import java.util.Date;
+package Negocio; 
 
+import java.util.Date;
+/**
+ * Escreva uma descrição da classe ModalidadeTurma aqui.
+ * 
+ * @author (seu nome) 
+ * @version (um número da versão ou uma data)
+ */
 public class ModalidadeLivre extends Modalidade
 {  
     private String modalidade;
@@ -26,4 +33,10 @@ public class ModalidadeLivre extends Modalidade
         this.dia = dia;
         this.modalidade = modalidade;
     }
+    
+    public void ModalidadeLivre(String nome, float preco) {
+          
+    }
+    
+    
 }

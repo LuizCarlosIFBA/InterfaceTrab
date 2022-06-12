@@ -1,5 +1,10 @@
-
-
+package Negocio;
+/**
+ * Escreva uma descrição da classe Resonsavel aqui.
+ * 
+ * @author (seu nome) 
+ * @version (um número da versão ou uma data)
+ */
 public class Responsavel
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
@@ -35,5 +40,9 @@ public class Responsavel
         this.telefone = telefone;
     }
 
-    
+    public void testaResponsavel(){
+        System.out.println(getCpf());
+        System.out.println(getNome());
+        System.out.println(getTelefone());
+    }
 }

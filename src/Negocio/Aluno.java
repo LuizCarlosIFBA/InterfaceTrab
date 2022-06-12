@@ -1,17 +1,25 @@
 package Negocio;
 
-import java.util.Date;
+import java.util.ArrayList;
 
+/**
+ * Escreva uma descrição da classe Aluno aqui.
+ * @author (seu nome) 
+ * @version (um número da versão ou uma data)
+ */
 public class Aluno
 {
+    protected ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
     private String cpf, nome, endereco, email, celular;
-    private Date dataIngresso;
+    private String dataIngresso;
+    /*add estudante*/
+    private boolean estudante;
     
-    public Date getDataIngresso() {
+    public String getDataIngresso() {
         return dataIngresso;
     }
 
-    public void setDataIngresso(Date dataIngresso) {
+    public void setDataIngresso(String dataIngresso) {
         this.dataIngresso = dataIngresso;
     }
     
@@ -55,13 +63,33 @@ public class Aluno
         this.celular = celular;
     }
 
-    public Aluno(String cpf, String nome, String endereco, String email, String celular, Date dataIngresso) {
+    public Aluno() {
+        
+    }
+       
+    public Aluno(String cpf, String nome, String endereco, String email, String celular, String dataIngresso) {
         this.cpf = cpf;
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
         this.celular = celular;
         this.dataIngresso = dataIngresso; 
+    }
+    
+    public void gravarAluno(Aluno aluno) {
+        listaAluno.add(aluno);
+    }
+    
+    public void testaInsercao(){
+        for (int i = 0; i <  listaAluno.size(); i++) {
+            System.out.println(listaAluno.get(i).getCpf());
+            System.out.println(listaAluno.get(i).getNome());
+            System.out.println(listaAluno.get(i).getEndereco());
+            System.out.println(listaAluno.get(i).getEmail());
+            System.out.println(listaAluno.get(i).getCelular());
+            System.out.println(listaAluno.get(i).getDataIngresso());
+            System.err.println(" ");
+	}
     }
     
 }
