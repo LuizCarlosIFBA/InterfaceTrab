@@ -6,10 +6,8 @@
 package Telas;
 
 import Negocio.Aluno;
-import Negocio.AlunoMenor;
-import Negocio.Matricula;
-import Negocio.Pagamento;
 import Negocio.Responsavel;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,15 +15,15 @@ import javax.swing.JOptionPane;
  * @author ANA
  */
 public class TelaAlunoMenor extends javax.swing.JFrame {
+    
+    private ArrayList<Aluno> listaAluno = new ArrayList<>();
+
+    public TelaAlunoMenor(ArrayList<Aluno> listaAluno){
+       initComponents();
+       this.listaAluno = listaAluno;
+    }
 
     /**
-     * Creates new form TelaAluno
-     */
-
-    public TelaAlunoMenor() {
-       initComponents();
-    }
-        
      /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,36 +49,16 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
         labelNome3 = new javax.swing.JLabel();
         campoEmail = new javax.swing.JTextField();
         labelEndereco1 = new javax.swing.JLabel();
-        campoTelefoneResponsavel = new javax.swing.JFormattedTextField();
-        tituloTela3 = new javax.swing.JLabel();
-        campoLogin = new javax.swing.JTextField();
-        campoSenha = new javax.swing.JPasswordField();
-        labelNome8 = new javax.swing.JLabel();
-        labelNome7 = new javax.swing.JLabel();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        Tabela = new javax.swing.JTable();
+        campoCelular = new javax.swing.JFormattedTextField();
+        checkEstudante = new javax.swing.JCheckBox();
+        busca = new javax.swing.JButton();
         tituloTela1 = new javax.swing.JLabel();
-        natacao = new javax.swing.JCheckBox();
-        ginastica = new javax.swing.JCheckBox();
-        boxe = new javax.swing.JCheckBox();
-        turma2 = new javax.swing.JCheckBox();
-        turma1 = new javax.swing.JCheckBox();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        Tabela1 = new javax.swing.JTable();
-        crossfit = new javax.swing.JCheckBox();
-        musculacao = new javax.swing.JCheckBox();
-        pilates = new javax.swing.JCheckBox();
-        tituloTela2 = new javax.swing.JLabel();
-        tituloTela4 = new javax.swing.JLabel();
         labelNome4 = new javax.swing.JLabel();
         labelNome5 = new javax.swing.JLabel();
-        campoCpfResponsavel = new javax.swing.JFormattedTextField();
-        campoCelular = new javax.swing.JFormattedTextField();
         labelNome6 = new javax.swing.JLabel();
+        campoCPFResponsavel = new javax.swing.JFormattedTextField();
+        campoTelefoneResponsavel = new javax.swing.JFormattedTextField();
         campoNomeResponsavel = new javax.swing.JTextField();
-        labelEndereco2 = new javax.swing.JLabel();
-        campoDataPagamento = new javax.swing.JFormattedTextField();
 
         jMenu1.setText("jMenu1");
 
@@ -93,7 +71,7 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
         });
 
         tituloTela.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        tituloTela.setText("Matrícula de alunos menores de idade");
+        tituloTela.setText("Matricula do aluno menor");
 
         labelNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelNome.setText("Nome");
@@ -153,119 +131,6 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
         labelEndereco1.setName("dataIngresso"); // NOI18N
 
         try {
-            campoTelefoneResponsavel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        campoTelefoneResponsavel.setToolTipText("");
-        campoTelefoneResponsavel.setName("campoTelefoneResponsavel"); // NOI18N
-
-        tituloTela3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        tituloTela3.setText("Credenciais de acesso");
-
-        campoLogin.setName("campoLogin"); // NOI18N
-        campoLogin.setOpaque(true);
-
-        campoSenha.setText("jPasswordField1");
-        campoSenha.setName("campoSenha"); // NOI18N
-
-        labelNome8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome8.setText("Senha");
-        labelNome8.setName("senha"); // NOI18N
-
-        labelNome7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome7.setText("Login");
-        labelNome7.setName("login"); // NOI18N
-
-        jCheckBox7.setText("Estudante");
-
-        Tabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Natação", "R$ 200,00", "Seg e ter 9:00 - 11:00", "Ter 14:00 - 15:00"},
-                {"Gisnática", "R$ 250,00", "Ter e quar 9:00 - 11:00", "Quar 14:00 - 15:00"},
-                {"Boxe", "R$ 100,00", "Quar e Quin 9:00 - 11:00", "Quin 14:00 - 15:00"}
-            },
-            new String [] {
-                "Nome", "Preço", "Turma 1", "Turma 2"
-            }
-        ));
-        Tabela.setColumnSelectionAllowed(true);
-        jScrollPane2.setViewportView(Tabela);
-
-        tituloTela1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        tituloTela1.setText("Modalidade livre");
-
-        natacao.setText("Natação");
-        natacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                natacaoActionPerformed(evt);
-            }
-        });
-
-        ginastica.setText("Ginástica");
-        ginastica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ginasticaActionPerformed(evt);
-            }
-        });
-
-        boxe.setText("Boxe");
-
-        turma2.setText("Turma 2");
-
-        turma1.setText("Turma 1");
-
-        Tabela1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Pilates", "R$ 200,00"},
-                {"Musculação", "R$ 250,00"},
-                {"Crossfit", "R$ 100,00"}
-            },
-            new String [] {
-                "Nome", "Preço"
-            }
-        ));
-        Tabela1.setColumnSelectionAllowed(true);
-        jScrollPane3.setViewportView(Tabela1);
-
-        crossfit.setText("Crossfit");
-
-        musculacao.setText("Musculação");
-        musculacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                musculacaoActionPerformed(evt);
-            }
-        });
-
-        pilates.setText("Pilates");
-        pilates.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pilatesActionPerformed(evt);
-            }
-        });
-
-        tituloTela2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        tituloTela2.setText("Dados do responsável");
-
-        tituloTela4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        tituloTela4.setText("Modalidade Diária");
-
-        labelNome4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome4.setText("CPF");
-        labelNome4.setName("cpf"); // NOI18N
-
-        labelNome5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome5.setText("Telefone");
-        labelNome5.setName("cpf"); // NOI18N
-
-        try {
-            campoCpfResponsavel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        campoCpfResponsavel.setName("campoCpf"); // NOI18N
-
-        try {
             campoCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
@@ -273,153 +138,130 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
         campoCelular.setToolTipText("");
         campoCelular.setName("campoCelular"); // NOI18N
 
+        checkEstudante.setText("Estudante");
+
+        busca.setText("Busca");
+        busca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscaActionPerformed(evt);
+            }
+        });
+
+        tituloTela1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        tituloTela1.setText("Dados do responsavel");
+
+        labelNome4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNome4.setText("Nome");
+        labelNome4.setName("nome"); // NOI18N
+
+        labelNome5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNome5.setText("CPF");
+        labelNome5.setName("cpf"); // NOI18N
+
         labelNome6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelNome6.setText("Nome");
-        labelNome6.setName("nome"); // NOI18N
-
-        campoNomeResponsavel.setName("campoNome"); // NOI18N
-        campoNomeResponsavel.setOpaque(true);
-
-        labelEndereco2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        labelEndereco2.setText("Data de pagamento");
-        labelEndereco2.setName("dataIngresso"); // NOI18N
+        labelNome6.setText("Telefone");
+        labelNome6.setName("cpf"); // NOI18N
 
         try {
-            campoDataPagamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            campoCPFResponsavel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        campoDataPagamento.setToolTipText("");
-        campoDataPagamento.setName("campoData"); // NOI18N
+        campoCPFResponsavel.setName("campoCpf"); // NOI18N
+
+        try {
+            campoTelefoneResponsavel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        campoTelefoneResponsavel.setToolTipText("");
+        campoTelefoneResponsavel.setName("campoCelular"); // NOI18N
+
+        campoNomeResponsavel.setName("campoNome"); // NOI18N
+        campoNomeResponsavel.setOpaque(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(218, 218, 218)
+                .addComponent(tituloTela)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addContainerGap())
+                        .addGap(289, 289, 289)
+                        .addComponent(botaoSalvar))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(natacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ginastica)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(boxe)
-                        .addGap(23, 23, 23)
-                        .addComponent(tituloTela1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(turma1)
-                        .addGap(58, 58, 58)
-                        .addComponent(turma2)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(221, 221, 221)
+                        .addComponent(tituloTela1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelNome3)
+                            .addComponent(labelNome))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelNome2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelNome1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(busca)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelNome3)
-                                    .addComponent(labelNome))
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(labelNome1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(labelNome2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(campoCelular, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))))))
+                                .addComponent(labelNome5)
+                                .addGap(18, 18, 18)
+                                .addComponent(campoCPFResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tituloTela2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(labelEndereco)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(labelEndereco)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(labelEndereco1)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(campoDataIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jCheckBox7)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(55, 55, 55))
+                                    .addComponent(checkEstudante))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelNome4)
-                        .addGap(18, 18, 18)
-                        .addComponent(campoCpfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelNome5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoTelefoneResponsavel)
-                        .addGap(18, 18, 18)
+                        .addComponent(campoNomeResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(labelNome6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoNomeResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
-            .addComponent(jScrollPane3)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tituloTela)
-                .addGap(151, 151, 151))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(tituloTela3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pilates)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(musculacao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(crossfit)
-                                .addGap(18, 18, 18)
-                                .addComponent(labelEndereco2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(labelNome7)
-                        .addGap(18, 18, 18)
-                        .addComponent(campoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelNome8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(botaoSalvar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(tituloTela4)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addComponent(campoTelefoneResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(161, 161, 161))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(23, 23, 23)
                 .addComponent(tituloTela)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome)
                     .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNome1)
-                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(busca, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome2)
@@ -427,61 +269,30 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
                     .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelEndereco)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelEndereco1)
                             .addComponent(campoDataIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox7))
-                    .addComponent(labelEndereco)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tituloTela2)
-                .addGap(1, 1, 1)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkEstudante)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tituloTela1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome4)
-                    .addComponent(campoCpfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNome5)
-                    .addComponent(campoTelefoneResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNome6)
+                    .addComponent(campoTelefoneResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoNomeResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tituloTela4)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(natacao)
-                            .addComponent(ginastica)
-                            .addComponent(boxe)
-                            .addComponent(turma1)
-                            .addComponent(turma2))
-                        .addGap(30, 30, 30))
-                    .addComponent(tituloTela1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pilates)
-                    .addComponent(musculacao)
-                    .addComponent(crossfit)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(campoDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelEndereco2)))
-                .addGap(1, 1, 1)
-                .addComponent(tituloTela3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNome8)
-                    .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNome7))
-                .addGap(18, 18, 18)
+                    .addComponent(labelNome5)
+                    .addComponent(campoCPFResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addComponent(botaoSalvar)
-                .addGap(9, 9, 9))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -489,40 +300,6 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
 
 
     
-    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-        Responsavel responsavel = new Responsavel(campoNomeResponsavel.getText(),campoCpfResponsavel.getText(),campoTelefoneResponsavel.getText());
-        
-        AlunoMenor insercaoAluno = new AlunoMenor(); 
-        AlunoMenor alunoMenor = new AlunoMenor(campoCPF.getText(),campoNome.getText(),campoEndereco.getText(),campoEmail.getText(),campoCelular.getText(),campoDataIngresso.getText(),responsavel); 
-        insercaoAluno.gravarAluno(alunoMenor);
-  
-        insercaoAluno.testaInsercao(); 
-        responsavel.testaResponsavel();
-        
-         
-        /*Modalidade diaria*/
-        boolean _natacao = natacao.isSelected();
-        boolean _ginastica = ginastica.isSelected();
-        boolean _boxe = boxe.isSelected();
-        
-        /*Modalidade livre*/
-        boolean _pilates = pilates.isSelected();
-        boolean _musculacao = musculacao.isSelected();
-        boolean _crossfit = crossfit.isSelected();
-       
-        //Pagamento
-        Pagamento p = new Pagamento();
-        
-        float modalidadeDiaria = p. pagamentoModalidade(_natacao,_ginastica,_boxe,200,250,100);
-        float modalidadeLivre = p. pagamentoModalidade(_pilates,_musculacao,_crossfit,200,250,100);
-        Pagamento insercaoPagamento = new Pagamento(campoDataPagamento.getText(),(modalidadeDiaria+modalidadeLivre));
-        
-        Matricula insercaomatricula = new Matricula();
-        Matricula matricula = new Matricula(campoLogin.getText(),campoSenha.getText(),insercaoAluno, insercaoPagamento);
-        JOptionPane.showMessageDialog(null, "Incluido com sucesso!");
-
-        limpar();
-    }//GEN-LAST:event_botaoSalvarActionPerformed
     public boolean camposValidos(){
         /*if (textMatricula.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Informe a matricula");
@@ -541,6 +318,7 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
             
                   
     }
+    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         /*opcaoCurso.removeAllItems();
@@ -549,23 +327,33 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
         }*/ 
     }//GEN-LAST:event_formWindowOpened
 
-    private void natacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_natacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_natacaoActionPerformed
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+        Responsavel responsavel = new Responsavel(campoNomeResponsavel.getText(),campoCPFResponsavel.getText(),campoTelefoneResponsavel.getText());
+        Aluno aluno = new Aluno(responsavel,campoCPF.getText(),campoNome.getText(),campoEndereco.getText(),campoEmail.getText(),campoCelular.getText(),campoDataIngresso.getText(),checkEstudante.isSelected());
+      
+        listaAluno.add(aluno);
+        JOptionPane.showMessageDialog(null, "Incluido com sucesso!");
+        
+        limpar();
+    }//GEN-LAST:event_botaoSalvarActionPerformed
 
-    private void ginasticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ginasticaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ginasticaActionPerformed
+    private void buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaActionPerformed
+        for (int i=0; i< listaAluno.size();i++)
+            if (campoCPF.getText().equals(listaAluno.get(i).getCpf()))
+            {
+                campoNome.setText(listaAluno.get(i).getNome());
+                campoEmail.setText(listaAluno.get(i).getEmail());
+                campoEndereco.setText(listaAluno.get(i).getEndereco());
+                campoCelular.setText(listaAluno.get(i).getCelular());
+                campoDataIngresso.setText(listaAluno.get(i).getDataIngresso());
+                campoCPFResponsavel.setText(listaAluno.get(i).getResponsavel().getCpf());
+                campoNomeResponsavel.setText(listaAluno.get(i).getResponsavel().getNome());
+                campoTelefoneResponsavel.setText(listaAluno.get(i).getResponsavel().getTelefone());
+            }
+        
+        
+    }//GEN-LAST:event_buscaActionPerformed
 
-    private void musculacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musculacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_musculacaoActionPerformed
-
-    private void pilatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilatesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pilatesActionPerformed
-
-   
     public void limpar(){
         campoNome.setText("");
         campoCPF.setText("");
@@ -573,43 +361,34 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
         campoCelular.setText("");
         campoEndereco.setText("");
         campoDataIngresso.setText("");
-        campoCpfResponsavel.setText("");
+        campoCPFResponsavel.setText("");
         campoNomeResponsavel.setText("");
         campoTelefoneResponsavel.setText("");
     }
+        
     /**
      * @param args the command line arguments
      */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabela;
-    private javax.swing.JTable Tabela1;
     private javax.swing.JButton botaoSalvar;
-    private javax.swing.JCheckBox boxe;
+    private javax.swing.JButton busca;
     private javax.swing.JFormattedTextField campoCPF;
+    private javax.swing.JFormattedTextField campoCPFResponsavel;
     private javax.swing.JFormattedTextField campoCelular;
-    private javax.swing.JFormattedTextField campoCpfResponsavel;
     private javax.swing.JFormattedTextField campoDataIngresso;
-    private javax.swing.JFormattedTextField campoDataPagamento;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextArea campoEndereco;
-    private javax.swing.JTextField campoLogin;
     private javax.swing.JTextField campoNome;
     private javax.swing.JTextField campoNomeResponsavel;
-    private javax.swing.JPasswordField campoSenha;
     private javax.swing.JFormattedTextField campoTelefoneResponsavel;
-    private javax.swing.JCheckBox crossfit;
-    private javax.swing.JCheckBox ginastica;
+    private javax.swing.JCheckBox checkEstudante;
     private javax.swing.ButtonGroup grupoTurno;
-    private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelEndereco;
     private javax.swing.JLabel labelEndereco1;
-    private javax.swing.JLabel labelEndereco2;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelNome1;
     private javax.swing.JLabel labelNome2;
@@ -617,17 +396,7 @@ public class TelaAlunoMenor extends javax.swing.JFrame {
     private javax.swing.JLabel labelNome4;
     private javax.swing.JLabel labelNome5;
     private javax.swing.JLabel labelNome6;
-    private javax.swing.JLabel labelNome7;
-    private javax.swing.JLabel labelNome8;
-    private javax.swing.JCheckBox musculacao;
-    private javax.swing.JCheckBox natacao;
-    private javax.swing.JCheckBox pilates;
     private javax.swing.JLabel tituloTela;
     private javax.swing.JLabel tituloTela1;
-    private javax.swing.JLabel tituloTela2;
-    private javax.swing.JLabel tituloTela3;
-    private javax.swing.JLabel tituloTela4;
-    private javax.swing.JCheckBox turma1;
-    private javax.swing.JCheckBox turma2;
     // End of variables declaration//GEN-END:variables
 }

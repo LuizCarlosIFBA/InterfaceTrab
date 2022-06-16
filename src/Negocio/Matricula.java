@@ -43,15 +43,6 @@ public class Matricula
     
     }
     
-    
-    public Matricula(String login, String senha, Aluno aluno, Pagamento pagamento) {
-        this.login = login;
-        this.senha = senha;
-        this.aluno = aluno;
-        this.pagamento = pagamento;       
-    }
-    
-
     public Matricula(String login, String senha, Aluno aluno, Modalidade modalidade, Pagamento pagamento) {
         this.login = login;
         this.senha = senha;

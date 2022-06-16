@@ -1,5 +1,6 @@
 package Negocio; 
 
+import java.util.ArrayList;
 import java.util.Date;
 /**
  * Escreva uma descrição da classe ModalidadeTurma aqui.
@@ -10,7 +11,7 @@ import java.util.Date;
 public class ModalidadeLivre extends Modalidade
 {  
     private String modalidade;
-    private Date dia;
+    private String dia;
     
     public String getModalidade() {
         return modalidade;
@@ -20,23 +21,19 @@ public class ModalidadeLivre extends Modalidade
         this.modalidade = modalidade;
     }
     
-    public Date getDia() {
+    public String getDia() {
         return dia;
     }
 
-    public void setDia(Date dia) {
+    public void setDia(String dia) {
         this.dia = dia;
     }
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    public ModalidadeLivre(String nome, float preco, String modalidade, Date dia) {
-        super(nome, preco);
+    public ModalidadeLivre(ArrayList<String> nome, float preco, String dia) {
+        super(preco, nome); 
         this.dia = dia;
-        this.modalidade = modalidade;
     }
     
-    public void ModalidadeLivre(String nome, float preco) {
-          
-    }
-    
+      
     
 }

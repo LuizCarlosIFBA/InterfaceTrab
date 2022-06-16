@@ -6,14 +6,16 @@
 package Telas;
 
 import Negocio.*;
+import java.util.ArrayList;
 /**
  *
  * @author ANA
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-    /**
-     * Creates new form TelaPrincipal
-     */
+    private ArrayList<Aluno> listaAluno = new ArrayList<>();
+    private ArrayList<Responsavel> listaResponsavel = new ArrayList<>();
+    private ArrayList<Modalidade> listaModalidade = new ArrayList<>();
+
     public TelaPrincipal() {
         initComponents();
     }
@@ -31,11 +33,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        saveMenuItem = new javax.swing.JMenuItem();
-        cadAluno = new javax.swing.JMenuItem();
-        cadAluno1 = new javax.swing.JMenuItem();
+        menu = new javax.swing.JMenuBar();
+        cadAlunoModalidaeDiaria = new javax.swing.JMenu();
+        cadastroAlunoMenor = new javax.swing.JMenuItem();
+        cadastroAluno = new javax.swing.JMenuItem();
+        cadastroModalidadeDiaria = new javax.swing.JMenuItem();
+        cadastroModalidadeLivre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,45 +65,59 @@ public class TelaPrincipal extends javax.swing.JFrame {
         desktopPane.add(jLabel1);
         jLabel1.setBounds(220, 20, 220, 28);
 
-        menuBar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        menu.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                menuBarPropertyChange(evt);
+                menuPropertyChange(evt);
             }
         });
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Menu");
-
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Aluno menor de idade");
-        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        cadAlunoModalidaeDiaria.setMnemonic('f');
+        cadAlunoModalidaeDiaria.setText("Menu");
+        cadAlunoModalidaeDiaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveMenuItemActionPerformed(evt);
+                cadAlunoModalidaeDiariaActionPerformed(evt);
             }
         });
-        fileMenu.add(saveMenuItem);
 
-        cadAluno.setMnemonic('a');
-        cadAluno.setText("Aluno");
-        cadAluno.addActionListener(new java.awt.event.ActionListener() {
+        cadastroAlunoMenor.setMnemonic('s');
+        cadastroAlunoMenor.setText("Aluno menor de idade");
+        cadastroAlunoMenor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadAlunoActionPerformed(evt);
+                cadastroAlunoMenorActionPerformed(evt);
             }
         });
-        fileMenu.add(cadAluno);
+        cadAlunoModalidaeDiaria.add(cadastroAlunoMenor);
 
-        cadAluno1.setMnemonic('a');
-        cadAluno1.setText("Login");
-        cadAluno1.addActionListener(new java.awt.event.ActionListener() {
+        cadastroAluno.setMnemonic('a');
+        cadastroAluno.setText("Aluno");
+        cadastroAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadAluno1ActionPerformed(evt);
+                cadastroAlunoActionPerformed(evt);
             }
         });
-        fileMenu.add(cadAluno1);
+        cadAlunoModalidaeDiaria.add(cadastroAluno);
 
-        menuBar.add(fileMenu);
+        cadastroModalidadeDiaria.setMnemonic('a');
+        cadastroModalidadeDiaria.setText("Modalidade diária");
+        cadastroModalidadeDiaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroModalidadeDiariaActionPerformed(evt);
+            }
+        });
+        cadAlunoModalidaeDiaria.add(cadastroModalidadeDiaria);
 
-        setJMenuBar(menuBar);
+        cadastroModalidadeLivre.setMnemonic('a');
+        cadastroModalidadeLivre.setText("Modalidade livre");
+        cadastroModalidadeLivre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroModalidadeLivreActionPerformed(evt);
+            }
+        });
+        cadAlunoModalidaeDiaria.add(cadastroModalidadeLivre);
+
+        menu.add(cadAlunoModalidaeDiaria);
+
+        setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,29 +137,38 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cadAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadAlunoActionPerformed
+    private void menuPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_menuPropertyChange
         // TODO add your handling code here:
-        TelaAluno telaAluno;
-        telaAluno = new TelaAluno();
+    }//GEN-LAST:event_menuPropertyChange
+
+    private void cadastroAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroAlunoActionPerformed
+        // TODO add your handling code here:
+        TelaAluno telaAluno = new TelaAluno(listaAluno);
         telaAluno.setVisible(true);
-    }//GEN-LAST:event_cadAlunoActionPerformed
+    }//GEN-LAST:event_cadastroAlunoActionPerformed
 
-    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
-        TelaAlunoMenor telaAlunoMenor;
-        telaAlunoMenor = new TelaAlunoMenor();
-        telaAlunoMenor.setVisible(true);
-    }//GEN-LAST:event_saveMenuItemActionPerformed
+    private void cadastroAlunoMenorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroAlunoMenorActionPerformed
+        TelaAlunoMenor telaAluno = new TelaAlunoMenor(listaAluno);
+        telaAluno.setVisible(true);
+    }//GEN-LAST:event_cadastroAlunoMenorActionPerformed
 
-    private void menuBarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_menuBarPropertyChange
+    private void cadastroModalidadeDiariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroModalidadeDiariaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menuBarPropertyChange
+        TelaModalidadeDiaria telaModalidadeDiaria = new TelaModalidadeDiaria(listaAluno,listaModalidade);
+        telaModalidadeDiaria.setVisible(true);
+    }//GEN-LAST:event_cadastroModalidadeDiariaActionPerformed
 
-    private void cadAluno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadAluno1ActionPerformed
+    private void cadAlunoModalidaeDiariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadAlunoModalidaeDiariaActionPerformed
+        
         // TODO add your handling code here:
-        TelaLogin telaLogin;
-        telaLogin = new TelaLogin();
-        telaLogin.setVisible(true);
-    }//GEN-LAST:event_cadAluno1ActionPerformed
+        
+    }//GEN-LAST:event_cadAlunoModalidaeDiariaActionPerformed
+
+    private void cadastroModalidadeLivreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroModalidadeLivreActionPerformed
+        // TODO add your handling code here:
+        TelaModalidadeLivre telaModalidadeLivre = new TelaModalidadeLivre(listaAluno,listaModalidade);
+        telaModalidadeLivre.setVisible(true);
+    }//GEN-LAST:event_cadastroModalidadeLivreActionPerformed
 
     
     
@@ -182,15 +208,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem cadAluno;
-    private javax.swing.JMenuItem cadAluno1;
+    private javax.swing.JMenu cadAlunoModalidaeDiaria;
+    private javax.swing.JMenuItem cadastroAluno;
+    private javax.swing.JMenuItem cadastroAlunoMenor;
+    private javax.swing.JMenuItem cadastroModalidadeDiaria;
+    private javax.swing.JMenuItem cadastroModalidadeLivre;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu fileMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JMenuBar menu;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -1,5 +1,6 @@
 package Negocio;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -9,13 +10,13 @@ import java.util.Date;
  * @version (um número da versão ou uma data)
  */
 public class ModalidadeDiaria extends Modalidade
-{   private Date dia;
+{   private String dia;
     
-    public Date getDia() {
+    public String getDia() {
         return dia;
     }
 
-    public void setDia(Date dia) {
+    public void setDia(String dia) {
         this.dia = dia;
     }
         
@@ -24,9 +25,9 @@ public class ModalidadeDiaria extends Modalidade
     
     }
     
-    public ModalidadeDiaria(String nome, float preco, Date dia){
-       super(nome, preco);
-       this.dia = dia; 
+    public ModalidadeDiaria(ArrayList<String> nome, float preco, String dia){
+        super(preco, nome);
+        this.dia = dia; 
        // this.dia = dia;
         //this.modalidade = modalidade;
     }

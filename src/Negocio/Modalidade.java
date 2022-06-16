@@ -1,4 +1,7 @@
 package Negocio;
+
+import java.util.ArrayList;
+
 /**
  * Escreva uma descrição da classe Modalidade aqui.
  * 
@@ -9,19 +12,18 @@ public class Modalidade
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
    
-    private String nome;
+    private ArrayList<String> nome = new ArrayList<>();
     private float preco;
 
-    
-    
-    public String getNome() {
+    public ArrayList<String> getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(ArrayList<String> nome) {
         this.nome = nome;
     }
-
+   
+    
     public float getPreco() {
         return preco;
     }
@@ -34,10 +36,12 @@ public class Modalidade
      
     }
 
-    public Modalidade(String nome, float preco) {
-        this.nome = nome;
+    public Modalidade(float preco, ArrayList<String> nome) {
         this.preco = preco;
+        this.nome = nome;
     }
+
+    
     
      
 }

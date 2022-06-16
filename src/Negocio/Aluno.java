@@ -9,11 +9,29 @@ import java.util.ArrayList;
  */
 public class Aluno
 {
-    protected ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
     private String cpf, nome, endereco, email, celular;
     private String dataIngresso;
-    /*add estudante*/
     private boolean estudante;
+
+    private Responsavel responsavel;
+   
+    public Responsavel getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(Responsavel responsavel) {
+        this.responsavel = responsavel;
+    }
+        
+    public boolean isEstudante() {
+        return estudante;
+    }
+
+    public void setEstudante(boolean estudante) {
+        this.estudante = estudante;
+    }
+    
+    
     
     public String getDataIngresso() {
         return dataIngresso;
@@ -26,7 +44,7 @@ public class Aluno
     public String getCpf() {
         return cpf;
     }
-
+ 
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
@@ -66,30 +84,25 @@ public class Aluno
     public Aluno() {
         
     }
-       
-    public Aluno(String cpf, String nome, String endereco, String email, String celular, String dataIngresso) {
+
+    public Aluno(String cpf, String nome, String endereco, String email, String celular, String dataIngresso, boolean estudante) {
         this.cpf = cpf;
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
         this.celular = celular;
-        this.dataIngresso = dataIngresso; 
-    }
+        this.dataIngresso = dataIngresso;
+        this.estudante = estudante;
+    }   
     
-    public void gravarAluno(Aluno aluno) {
-        listaAluno.add(aluno);
+    public Aluno(Responsavel responsavel, String cpf, String nome, String endereco, String email, String celular, String dataIngresso, boolean estudante) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.email = email;
+        this.celular = celular;
+        this.dataIngresso = dataIngresso;
+        this.estudante = estudante;
+        this.responsavel = responsavel;
     }
-    
-    public void testaInsercao(){
-        for (int i = 0; i <  listaAluno.size(); i++) {
-            System.out.println(listaAluno.get(i).getCpf());
-            System.out.println(listaAluno.get(i).getNome());
-            System.out.println(listaAluno.get(i).getEndereco());
-            System.out.println(listaAluno.get(i).getEmail());
-            System.out.println(listaAluno.get(i).getCelular());
-            System.out.println(listaAluno.get(i).getDataIngresso());
-            System.err.println(" ");
-	}
-    }
-    
 }
