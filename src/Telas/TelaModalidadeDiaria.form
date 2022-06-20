@@ -41,18 +41,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
-                      <Component id="tituloTela4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+              <EmptySpace pref="257" max="32767" attributes="0"/>
+              <Component id="tituloTela4" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="264" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -68,10 +59,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="boxe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
-                      <Component id="turma1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="turma2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="campoDataPagamento" min="-2" pref="72" max="-2" attributes="0"/>
@@ -101,6 +89,30 @@
                       <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
                       <Component id="botaoSalvar" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="turma1_natacao" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="turm1_ginastica" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="turma2_natacao" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="turma2_ginastica" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="turma2_boxe" min="-2" max="-2" attributes="0"/>
+                          <Component id="turma1_boxe" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="618" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -114,18 +126,24 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="91" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="natacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ginastica" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="boxe" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="turma1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="turma2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="natacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ginastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="boxe" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="turma1_natacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="turma1_boxe" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="turm1_ginastica" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="turma2_natacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="turma2_ginastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="turma2_boxe" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="labelEndereco2" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -148,7 +166,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="botaoSalvar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -223,8 +241,8 @@
                 </Column>
                 <Column editable="true" title="Turma 1" type="java.lang.Object">
                   <Data value="Seg e ter 9:00 - 11:00"/>
-                  <Data value="Ter e quar 9:00 - 11:00"/>
-                  <Data value="Quar e Quin 9:00 - 11:00"/>
+                  <Data value="Quar e quin 9:00 - 11:00"/>
+                  <Data value="Sex e Sab 9:00 - 11:00"/>
                 </Column>
                 <Column editable="true" title="Turma 2" type="java.lang.Object">
                   <Data value="Ter 14:00 - 15:00"/>
@@ -232,6 +250,30 @@
                   <Data value="Quin 14:00 - 15:00"/>
                 </Column>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="2">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
             </Property>
             <Property name="columnSelectionAllowed" type="boolean" value="true"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
@@ -265,12 +307,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="turma2">
+    <Component class="javax.swing.JCheckBox" name="turma2_natacao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Turma 2"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="turma1">
+    <Component class="javax.swing.JCheckBox" name="turma1_natacao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Turma 1"/>
       </Properties>
@@ -310,6 +352,26 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="turma1_boxe">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Turma 1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="turma2_ginastica">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Turma 2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="turm1_ginastica">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Turma 1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="turma2_boxe">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="turma 2"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

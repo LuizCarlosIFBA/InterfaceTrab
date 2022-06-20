@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import sun.security.jgss.GSSCaller;
 
 /**
  *
@@ -29,6 +30,7 @@ public class TelaModalidadeLivre extends javax.swing.JFrame {
     private ArrayList<Aluno> listaAluno = new ArrayList<>();
     private ArrayList<String> nomeModalidades = new ArrayList<>();
     private ArrayList<Modalidade> listaModalidade = new ArrayList<>();
+    private ArrayList<Matricula> listaMatricula = new ArrayList<>();
 
     /*Somatória valor total*/
     private float valorModalidade;
@@ -42,10 +44,12 @@ public class TelaModalidadeLivre extends javax.swing.JFrame {
     }
     /**/
 
-    public TelaModalidadeLivre(ArrayList<Aluno> lista, ArrayList<Modalidade> modalidade) {
+    public TelaModalidadeLivre(ArrayList<Aluno> lista, ArrayList<Modalidade> modalidade, ArrayList<Matricula> matricula) {
         initComponents();
         this.listaAluno = lista;
         this.listaModalidade = modalidade;
+        this.listaMatricula = matricula;
+
         preencheListaPaciente();
     }
        
@@ -261,6 +265,8 @@ public class TelaModalidadeLivre extends javax.swing.JFrame {
        
        /*pagamento*/
        Pagamento pagamento = new Pagamento(campoDataPagamento.getText(),getValorTotal());
+       Matricula matricula = new Matricula(campoLogin.getText(),campoSenha.getText(), modalidadeLivre, pagamento);
+       listaMatricula.add(matricula);
        JOptionPane.showMessageDialog(null, "Incluido com sucesso!");
             
        limpar();
@@ -311,7 +317,11 @@ public class TelaModalidadeLivre extends javax.swing.JFrame {
 
    
     public void limpar(){
-    
+        campoLogin.setText("");
+        campoDataPagamento.setText("");
+        pilates.setSelected(false);
+        crossfit.setSelected(false);
+        musculacao.setSelected(false);
     }
     /**
      * @param args the command line arguments

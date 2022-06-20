@@ -29,7 +29,8 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
     private ArrayList<Aluno> listaAluno = new ArrayList<>();
     private ArrayList<String> nomeModalidades = new ArrayList<>();
     private ArrayList<Modalidade> listaModalidade = new ArrayList<>();
-
+    private ArrayList<Matricula> listaMatricula = new ArrayList<>();
+    
     /*Somatória valor total*/
     private float valorModalidade;
 
@@ -42,10 +43,11 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
     }
     /**/
 
-    public TelaModalidadeDiaria(ArrayList<Aluno> lista, ArrayList<Modalidade> modalidade) {
+    public TelaModalidadeDiaria(ArrayList<Aluno> lista, ArrayList<Modalidade> modalidade, ArrayList<Matricula> matricula) {
         initComponents();
         this.listaAluno = lista;
         this.listaModalidade = modalidade;
+        this.listaMatricula = matricula;
         preencheListaPaciente();
     }
        
@@ -75,12 +77,16 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
         natacao = new javax.swing.JCheckBox();
         ginastica = new javax.swing.JCheckBox();
         boxe = new javax.swing.JCheckBox();
-        turma2 = new javax.swing.JCheckBox();
-        turma1 = new javax.swing.JCheckBox();
+        turma2_natacao = new javax.swing.JCheckBox();
+        turma1_natacao = new javax.swing.JCheckBox();
         tituloTela4 = new javax.swing.JLabel();
         labelEndereco2 = new javax.swing.JLabel();
         campoDataPagamento = new javax.swing.JFormattedTextField();
         campoAluno = new javax.swing.JComboBox<>();
+        turma1_boxe = new javax.swing.JCheckBox();
+        turma2_ginastica = new javax.swing.JCheckBox();
+        turm1_ginastica = new javax.swing.JCheckBox();
+        turma2_boxe = new javax.swing.JCheckBox();
 
         jMenu1.setText("jMenu1");
 
@@ -119,8 +125,8 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Natação", "R$ 200,00", "Seg e ter 9:00 - 11:00", "Ter 14:00 - 15:00"},
-                {"Gisnática", "R$ 250,00", "Ter e quar 9:00 - 11:00", "Quar 14:00 - 15:00"},
-                {"Boxe", "R$ 100,00", "Quar e Quin 9:00 - 11:00", "Quin 14:00 - 15:00"}
+                {"Gisnática", "R$ 250,00", "Quar e quin 9:00 - 11:00", "Quar 14:00 - 15:00"},
+                {"Boxe", "R$ 100,00", "Sex e Sab 9:00 - 11:00", "Quin 14:00 - 15:00"}
             },
             new String [] {
                 "Nome", "Preço", "Turma 1", "Turma 2"
@@ -128,6 +134,7 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
         ));
         Tabela.setColumnSelectionAllowed(true);
         jScrollPane2.setViewportView(Tabela);
+        Tabela.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         natacao.setText("Natação");
         natacao.addActionListener(new java.awt.event.ActionListener() {
@@ -150,9 +157,9 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
             }
         });
 
-        turma2.setText("Turma 2");
+        turma2_natacao.setText("Turma 2");
 
-        turma1.setText("Turma 1");
+        turma1_natacao.setText("Turma 1");
 
         tituloTela4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tituloTela4.setText("Modalidade Diária");
@@ -169,20 +176,22 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
         campoDataPagamento.setToolTipText("");
         campoDataPagamento.setName("campoData"); // NOI18N
 
+        turma1_boxe.setText("Turma 1");
+
+        turma2_ginastica.setText("Turma 2");
+
+        turm1_ginastica.setText("Turma 1");
+
+        turma2_boxe.setText("turma 2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(257, 257, 257)
-                        .addComponent(tituloTela4)
-                        .addGap(159, 159, 159)))
-                .addGap(105, 105, 105))
+                .addContainerGap(257, Short.MAX_VALUE)
+                .addComponent(tituloTela4)
+                .addGap(264, 264, 264))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,10 +204,7 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(boxe)
-                        .addGap(180, 180, 180)
-                        .addComponent(turma1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(turma2))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(campoDataPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
@@ -220,7 +226,25 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
                         .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(283, 283, 283)
-                        .addComponent(botaoSalvar)))
+                        .addComponent(botaoSalvar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(turma1_natacao)
+                                .addGap(18, 18, 18)
+                                .addComponent(turm1_ginastica))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(turma2_natacao)
+                                .addGap(18, 18, 18)
+                                .addComponent(turma2_ginastica)))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(turma2_boxe)
+                            .addComponent(turma1_boxe)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -231,15 +255,21 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(natacao)
-                        .addComponent(ginastica)
-                        .addComponent(boxe))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(turma1)
-                        .addComponent(turma2)))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(natacao)
+                    .addComponent(ginastica)
+                    .addComponent(boxe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(turma1_natacao)
+                    .addComponent(turma1_boxe)
+                    .addComponent(turm1_ginastica))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(turma2_natacao)
+                    .addComponent(turma2_ginastica)
+                    .addComponent(turma2_boxe))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelEndereco2)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -257,7 +287,7 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
                         .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(botaoSalvar)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -268,34 +298,20 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
        Modalidade modalidade = new Modalidade();
        Date dataHoraAtual = new Date();
        String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-         
+      
        /*Modalidades*/
        ModalidadeDiaria modalidadeDiaria = new ModalidadeDiaria(nomeModalidades,getValorTotal(),data);
        
        /*pagamento*/
        Pagamento pagamento = new Pagamento(campoDataPagamento.getText(),getValorTotal());   
        JOptionPane.showMessageDialog(null, "Incluido com sucesso!");
+       Matricula matricula = new Matricula(campoLogin.getText(),campoSenha.getText(), modalidadeDiaria, pagamento);
+       listaMatricula.add(matricula);
        limpar();
+       
         
     }//GEN-LAST:event_botaoSalvarActionPerformed
-    public boolean camposValidos(){
-        /*if (textMatricula.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Informe a matricula");
-            return false;
-        }
-        else if (textNome.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Informe o nome do aluno");
-            return false;
-        }
-        else if (opcaoCurso.getSelectedIndex() < 0){
-            JOptionPane.showMessageDialog(null, "Informe o curso");
-            return false;
-        }
-        else */ 
-            return true;
-            
-                  
-    }
+  
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         /*opcaoCurso.removeAllItems();
@@ -324,7 +340,13 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
 
    
     public void limpar(){
-    
+        campoLogin.setText("");
+        campoDataPagamento.setText("");
+        natacao.setSelected(false);
+        boxe.setSelected(false);
+        ginastica.setSelected(false);
+        turma1_natacao.setSelected(false);
+        turma2_natacao.setSelected(false);
     }
     /**
      * @param args the command line arguments
@@ -349,7 +371,11 @@ public class TelaModalidadeDiaria extends javax.swing.JFrame {
     private javax.swing.JCheckBox natacao;
     private javax.swing.JLabel tituloTela3;
     private javax.swing.JLabel tituloTela4;
-    private javax.swing.JCheckBox turma1;
-    private javax.swing.JCheckBox turma2;
+    private javax.swing.JCheckBox turm1_ginastica;
+    private javax.swing.JCheckBox turma1_boxe;
+    private javax.swing.JCheckBox turma1_natacao;
+    private javax.swing.JCheckBox turma2_boxe;
+    private javax.swing.JCheckBox turma2_ginastica;
+    private javax.swing.JCheckBox turma2_natacao;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private ArrayList<Aluno> listaAluno = new ArrayList<>();
     private ArrayList<Responsavel> listaResponsavel = new ArrayList<>();
     private ArrayList<Modalidade> listaModalidade = new ArrayList<>();
+    private ArrayList<Matricula> listaMatricula = new ArrayList<>();
 
+    
     public TelaPrincipal() {
         initComponents();
     }
@@ -154,7 +156,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void cadastroModalidadeDiariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroModalidadeDiariaActionPerformed
         // TODO add your handling code here:
-        TelaModalidadeDiaria telaModalidadeDiaria = new TelaModalidadeDiaria(listaAluno,listaModalidade);
+        TelaModalidadeDiaria telaModalidadeDiaria = new TelaModalidadeDiaria(listaAluno,listaModalidade,listaMatricula);
         telaModalidadeDiaria.setVisible(true);
     }//GEN-LAST:event_cadastroModalidadeDiariaActionPerformed
 
@@ -166,7 +168,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void cadastroModalidadeLivreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroModalidadeLivreActionPerformed
         // TODO add your handling code here:
-        TelaModalidadeLivre telaModalidadeLivre = new TelaModalidadeLivre(listaAluno,listaModalidade);
+        TelaModalidadeLivre telaModalidadeLivre = new TelaModalidadeLivre(listaAluno,listaModalidade,listaMatricula);
         telaModalidadeLivre.setVisible(true);
     }//GEN-LAST:event_cadastroModalidadeLivreActionPerformed
 

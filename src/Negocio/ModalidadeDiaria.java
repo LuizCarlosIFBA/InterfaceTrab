@@ -10,8 +10,16 @@ import java.util.Date;
  * @version (um número da versão ou uma data)
  */
 public class ModalidadeDiaria extends Modalidade
-{   private String dia;
-    
+{   private String dia,turma;
+
+    public String getTurma() {
+        return turma;
+    }
+
+    public void setTurma(String turma) {
+        this.turma = turma;
+    }
+        
     public String getDia() {
         return dia;
     }
@@ -27,7 +35,7 @@ public class ModalidadeDiaria extends Modalidade
     
     public ModalidadeDiaria(ArrayList<String> nome, float preco, String dia){
         super(preco, nome);
-        this.dia = dia; 
+        this.dia = dia;
        // this.dia = dia;
         //this.modalidade = modalidade;
     }
