@@ -256,7 +256,6 @@ public class TelaModalidadeLivre extends javax.swing.JFrame {
 
      
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-       Modalidade modalidade = new Modalidade();
        Date dataHoraAtual = new Date();
        String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
          
@@ -267,10 +266,10 @@ public class TelaModalidadeLivre extends javax.swing.JFrame {
        Pagamento pagamento = new Pagamento(campoDataPagamento.getText(),getValorTotal());
        Matricula matricula = new Matricula(campoLogin.getText(),campoSenha.getText(), modalidadeLivre, pagamento);
        listaMatricula.add(matricula);
+       
        JOptionPane.showMessageDialog(null, "Incluido com sucesso!");
-            
        limpar();
-        
+       
     }//GEN-LAST:event_botaoSalvarActionPerformed
     public boolean camposValidos(){
         /*if (textMatricula.getText().equals("")){
@@ -314,8 +313,7 @@ public class TelaModalidadeLivre extends javax.swing.JFrame {
         // TODO add your handling code here:
         somaValorModalidade(100);
     }//GEN-LAST:event_crossfitActionPerformed
-
-   
+       
     public void limpar(){
         campoLogin.setText("");
         campoDataPagamento.setText("");

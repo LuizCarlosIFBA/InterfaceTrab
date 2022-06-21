@@ -31,6 +31,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menuBar1 = new java.awt.MenuBar();
+        menu1 = new java.awt.Menu();
+        menu2 = new java.awt.Menu();
+        menuBar2 = new java.awt.MenuBar();
+        menu3 = new java.awt.Menu();
+        menu4 = new java.awt.Menu();
+        popupMenu1 = new java.awt.PopupMenu();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -41,6 +57,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadastroAluno = new javax.swing.JMenuItem();
         cadastroModalidadeDiaria = new javax.swing.JMenuItem();
         cadastroModalidadeLivre = new javax.swing.JMenuItem();
+        acessoLogin = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        menu1.setLabel("File");
+        menuBar1.add(menu1);
+
+        menu2.setLabel("Edit");
+        menuBar1.add(menu2);
+
+        menu3.setLabel("File");
+        menuBar2.add(menu3);
+
+        menu4.setLabel("Edit");
+        menuBar2.add(menu4);
+
+        popupMenu1.setLabel("popupMenu1");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        jMenu5.setText("File");
+        jMenuBar3.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar3.add(jMenu6);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +117,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         desktopPane.add(jLabel1);
         jLabel1.setBounds(220, 20, 220, 28);
 
+        menu.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                menuAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         menu.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 menuPropertyChange(evt);
@@ -74,7 +133,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         cadAlunoModalidaeDiaria.setMnemonic('f');
-        cadAlunoModalidaeDiaria.setText("Menu");
+        cadAlunoModalidaeDiaria.setText("Cadastro");
         cadAlunoModalidaeDiaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadAlunoModalidaeDiariaActionPerformed(evt);
@@ -118,6 +177,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         cadAlunoModalidaeDiaria.add(cadastroModalidadeLivre);
 
         menu.add(cadAlunoModalidaeDiaria);
+
+        acessoLogin.setText("Acesso");
+        acessoLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acessoLoginActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Login");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        acessoLogin.add(jMenuItem1);
+
+        menu.add(acessoLogin);
 
         setJMenuBar(menu);
 
@@ -172,6 +248,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaModalidadeLivre.setVisible(true);
     }//GEN-LAST:event_cadastroModalidadeLivreActionPerformed
 
+    private void menuAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_menuAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuAncestorAdded
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        TelaLogin telaLogin = new TelaLogin(listaMatricula);
+        telaLogin.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void acessoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessoLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_acessoLoginActionPerformed
+
     
     
     /**
@@ -210,6 +300,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu acessoLogin;
     private javax.swing.JMenu cadAlunoModalidaeDiaria;
     private javax.swing.JMenuItem cadastroAluno;
     private javax.swing.JMenuItem cadastroAlunoMenor;
@@ -217,9 +308,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem cadastroModalidadeLivre;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JMenuBar menu;
+    private java.awt.Menu menu1;
+    private java.awt.Menu menu2;
+    private java.awt.Menu menu3;
+    private java.awt.Menu menu4;
+    private java.awt.MenuBar menuBar1;
+    private java.awt.MenuBar menuBar2;
+    private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables
 
 }

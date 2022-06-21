@@ -56,17 +56,9 @@
                   <Component id="labelEndereco2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="boxe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="campoDataPagamento" min="-2" pref="72" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="campoAluno" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="campoDataPagamento" min="-2" pref="72" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="campoAluno" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -103,11 +95,6 @@
                               <Component id="turma2_ginastica" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="turma2_boxe" min="-2" max="-2" attributes="0"/>
-                          <Component id="turma1_boxe" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -129,19 +116,16 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="natacao" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ginastica" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="boxe" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="turma1_natacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="turma1_boxe" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="turm1_ginastica" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="turma2_natacao" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="turma2_ginastica" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="turma2_boxe" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -228,26 +212,22 @@
         <Component class="javax.swing.JTable" name="Tabela">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="3">
+              <Table columnCount="4" rowCount="2">
                 <Column editable="true" title="Nome" type="java.lang.Object">
                   <Data value="Nata&#xe7;&#xe3;o"/>
                   <Data value="Gisn&#xe1;tica"/>
-                  <Data value="Boxe"/>
                 </Column>
                 <Column editable="true" title="Pre&#xe7;o" type="java.lang.Object">
                   <Data value="R$ 200,00"/>
                   <Data value="R$ 250,00"/>
-                  <Data value="R$ 100,00"/>
                 </Column>
                 <Column editable="true" title="Turma 1" type="java.lang.Object">
                   <Data value="Seg e ter 9:00 - 11:00"/>
                   <Data value="Quar e quin 9:00 - 11:00"/>
-                  <Data value="Sex e Sab 9:00 - 11:00"/>
                 </Column>
                 <Column editable="true" title="Turma 2" type="java.lang.Object">
                   <Data value="Ter 14:00 - 15:00"/>
                   <Data value="Quar 14:00 - 15:00"/>
-                  <Data value="Quin 14:00 - 15:00"/>
                 </Column>
               </Table>
             </Property>
@@ -299,14 +279,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ginasticaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="boxe">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Boxe"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxeActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JCheckBox" name="turma2_natacao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Turma 2"/>
@@ -353,11 +325,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="turma1_boxe">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Turma 1"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JCheckBox" name="turma2_ginastica">
       <Properties>
         <Property name="text" type="java.lang.String" value="Turma 2"/>
@@ -366,11 +333,6 @@
     <Component class="javax.swing.JCheckBox" name="turm1_ginastica">
       <Properties>
         <Property name="text" type="java.lang.String" value="Turma 1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="turma2_boxe">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="turma 2"/>
       </Properties>
     </Component>
   </SubComponents>
