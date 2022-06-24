@@ -8,6 +8,8 @@ package Negocio;
 import Negocio.Modalidade;
 import Negocio.Aluno;
 import Negocio.Pagamento;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -22,6 +24,7 @@ public class Matricula
     private Pagamento pagamento;
     private String login, senha;
 
+    private ArrayList<Matricula> listaMatricula = new ArrayList<>();
     
     public Aluno getAluno() {
         return aluno;
@@ -63,7 +66,9 @@ public class Matricula
         this.pagamento = pagamento;
     }
     
+    public Matricula(){
     
+    }
 
     public Matricula(String login, String senha, Aluno aluno, Modalidade modalidade, Pagamento pagamento) {
         this.login = login;
@@ -75,6 +80,16 @@ public class Matricula
     }
     
     //MÉTODO ACESSO (TO-DO)
-    
+    public void acessar(String login, String senha, ArrayList<Matricula> matricula){
+        this.listaMatricula = matricula;
+               
+        for(int i=0;i<listaMatricula.size();i++){
+            if(login.equals(listaMatricula.get(i).getLogin()) && senha.equals(listaMatricula.get(i).getSenha())){
+                JOptionPane.showMessageDialog(null,"Logado!!!");
+                break; 
+            }
+        }
+       
+    }    
 }
 

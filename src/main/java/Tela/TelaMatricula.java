@@ -469,6 +469,7 @@ public class TelaMatricula extends javax.swing.JFrame {
         pag.calcularDesconto(getCapturaPreco(),estudante,parente,contModalidades);
         return pag;
     }
+    
             
     public void limparModalidadeLivre(){
        musculacao.setSelected(false);
@@ -573,6 +574,9 @@ public class TelaMatricula extends javax.swing.JFrame {
             Matricula matricula = new Matricula(campoLogin.getText(),campoSenha.getText(),getAluno(), gravarModalidadeLivre(),valorPagamento(campoDataPagamentoLivre.getText()));
             listaMatricula.add(matricula);
         }
+        
+        limparModalidadeDiaria();
+        limparModalidadeLivre();
     }//GEN-LAST:event_salvarActionPerformed
 
     private void turma1_natacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turma1_natacaoActionPerformed
