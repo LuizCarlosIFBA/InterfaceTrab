@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import Negocio.Aluno;
 import Negocio.Matricula;
 import Negocio.Modalidade;
+import Negocio.ModalidadeDiaria;
+import Negocio.ModalidadeLivre;
 /**
  *
  * @author luiz
@@ -16,6 +18,8 @@ public class Principal extends javax.swing.JFrame {
     private ArrayList<Aluno> listaAluno = new ArrayList<>();
     private ArrayList<Modalidade> listaModalidade = new ArrayList<>();
     private ArrayList<Matricula> listaMatricula = new ArrayList<>();
+    private ArrayList<ModalidadeDiaria> listaModalidadeDiaria = new ArrayList<>();
+    private ArrayList<ModalidadeLivre> listaModalidadeLivre = new ArrayList<>();
     /**
      * Creates new form principal
      */
@@ -24,14 +28,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     
-    public Principal(ArrayList<Aluno> listaAluno,ArrayList<Modalidade> listaModalidade, ArrayList<Matricula> listaMatricula) {
+    public Principal(ArrayList<Aluno> listaAluno,ArrayList<Modalidade> listaModalidade, ArrayList<Matricula> listaMatricula,ArrayList<ModalidadeLivre> listaModalidadeLivre,ArrayList<ModalidadeDiaria> listaModalidadeDiaria) {
         initComponents();
         this.listaAluno = listaAluno;
         this.listaModalidade = listaModalidade;
         this.listaMatricula = listaMatricula;
+        this.listaModalidadeDiaria= listaModalidadeDiaria;
+        this.listaModalidadeLivre= listaModalidadeLivre;
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,7 +159,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void cadMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadMatriculaActionPerformed
         // TODO add your handling code here:
-        TelaMatricula telaMatricula = new TelaMatricula(listaAluno,listaModalidade,listaMatricula);
+        TelaMatricula telaMatricula = new TelaMatricula(listaAluno,listaModalidade,listaMatricula,listaModalidadeLivre,listaModalidadeDiaria);
         telaMatricula.setVisible(true);
     }//GEN-LAST:event_cadMatriculaActionPerformed
 
@@ -167,8 +171,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void pagarModalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarModalidadeActionPerformed
         // TODO add your handling code here:
-        TelaPagar telaPagar = new TelaPagar();
-        telaPagar.setVisible(true);
+      
     }//GEN-LAST:event_pagarModalidadeActionPerformed
 
     private void pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarActionPerformed

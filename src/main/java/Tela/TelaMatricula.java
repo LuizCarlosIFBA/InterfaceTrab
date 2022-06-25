@@ -4,7 +4,6 @@
  */
 package Tela;
 
-
 import Negocio.Aluno;
 import Negocio.Matricula;
 import Negocio.Modalidade;
@@ -19,13 +18,15 @@ import javax.swing.JOptionPane;
  * @author luiz
  */
 public class TelaMatricula extends javax.swing.JFrame {
-   /*criei para não ter problemas ao trabalhar com objetos em métodos diferentes*/
+
+    /*criei para não ter problemas ao trabalhar com objetos em métodos diferentes*/
     private String nome = " ";
     private String turma = " ";
     private String dia = " ";
     private float preco = 0;
     private int contModalidades = 0;
     private Aluno aluno;
+    private Pagamento pagamento;
     
     private ArrayList<Aluno> listaAluno = new ArrayList<>();
     private ArrayList<Modalidade> listaModalidade = new ArrayList<>();
@@ -33,58 +34,78 @@ public class TelaMatricula extends javax.swing.JFrame {
     private ArrayList<ModalidadeLivre> listaModalidadeLivre = new ArrayList<>();
 
     private ArrayList<Matricula> listaMatricula = new ArrayList<>();
-    
-   
-        
+
     public TelaMatricula() {
         initComponents();
     }
-    
-    public TelaMatricula(ArrayList<Aluno> lista, ArrayList<Modalidade> modalidade, ArrayList<Matricula> matricula) {
+
+    public TelaMatricula(ArrayList<Aluno> lista, ArrayList<Modalidade> modalidade, ArrayList<Matricula> matricula,ArrayList<ModalidadeLivre> modalidadeLivre,ArrayList<ModalidadeDiaria> modalidadeDiaria) {
         initComponents();
         this.listaAluno = lista;
         this.listaModalidade = modalidade;
+        this.listaModalidadeDiaria = modalidadeDiaria;
+        this.listaModalidadeLivre = modalidadeLivre;
         this.listaMatricula = matricula;
         preencheListaMatricula();
-   }
-       
-    public void preencheListaMatricula(){
-        for (int i=0; i< listaAluno.size();i++){
-            campoAluno.addItem(listaAluno.get(i).getNome());
-        }    
     }
 
-    /*criei para não ter problemas ao trabalhar com objetos em métodos diferentes*/ 
-    public void capTuraNome(String nome){
-        this.nome += nome+", ";    
+    public void preencheListaMatricula() {
+        for (int i = 0; i < listaAluno.size(); i++) {
+            campoAluno.addItem(listaAluno.get(i).getNome());
+        }
     }
-    
-    public String getCapturaNome(){
+
+    /*criei para não ter problemas ao trabalhar com objetos em métodos diferentes*/
+    public void capTuraNome(String nome) {
+        this.nome += nome + ", ";
+    }
+
+    public String getCapturaNome() {
         return nome;
     }
-    
-    public void capturaPreco(float preco){
-        this.preco+= preco;
+
+    public void capturaPreco(float preco) {
+        this.preco += preco;
     }
-    
-    public float getCapturaPreco(){
+
+    public float getCapturaPreco() {
         return preco;
     }
-    
-    public void capturaTurma(String turma){
-        this.turma += turma+", ";    
+
+    public void capturaTurma(String turma) {
+        this.turma += turma + ", ";
     }
-    
-    public String getCapturaTurma(){
+
+    public String getCapturaTurma() {
         return turma;
     }
-    
-    public void capturaDia(String dia){
-        this.dia += dia+", ";    
+
+    public void capturaDia(String dia) {
+        this.dia += dia + ", ";
     }
-    
-    public String getCapturaDia(){
+
+    public String getCapturaDia() {
         return dia;
+    }
+
+    public boolean capturaParente() {
+        boolean parente = false;
+        for (int i = 0; i < listaAluno.size(); i++) {
+            if (campoAluno.getModel().getSelectedItem().toString().equals(listaAluno.get(i).getNome())) {
+                parente = listaAluno.get(i).isEstudante();
+            }
+        }
+        return parente;
+    }
+
+    public boolean capturaEstudante() {
+        boolean estudante = false;
+        for (int i = 0; i < listaAluno.size(); i++) {
+            if (campoAluno.getModel().getSelectedItem().toString().equals(listaAluno.get(i).getNome())) {
+                estudante = listaAluno.get(i).isEstudante();
+            }
+        }
+        return estudante;
     }
 
     public Aluno getAluno() {
@@ -95,13 +116,18 @@ public class TelaMatricula extends javax.swing.JFrame {
         this.aluno = aluno;
     }
     
-    
-    public String getDataPagamento() {
-        return "Pagamento modalidade diária: "+campoDataPagamentoDiaria.getText()+"Pagamento modalidade livre: "+campoDataPagamentoLivre.getText();
+    public Pagamento getPagamento() {
+        return pagamento;
     }
 
-   
-    
+    public void gravarPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }
+
+    public String getDataPagamento() {
+        return "Pagamento modalidade diária: " + campoDataPagamentoDiaria.getText() + "Pagamento modalidade livre: " + campoDataPagamentoLivre.getText();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -123,7 +149,7 @@ public class TelaMatricula extends javax.swing.JFrame {
         pilates = new javax.swing.JCheckBox();
         tituloTela3 = new javax.swing.JLabel();
         labelNome9 = new javax.swing.JLabel();
-        buscarCPF = new javax.swing.JButton();
+        listarModalidades = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -134,7 +160,7 @@ public class TelaMatricula extends javax.swing.JFrame {
         ginastica = new javax.swing.JCheckBox();
         turma2_natacao = new javax.swing.JCheckBox();
         turma1_natacao = new javax.swing.JCheckBox();
-        salvar = new javax.swing.JButton();
+        inserir = new javax.swing.JButton();
         campoDataPagamentoLivre = new javax.swing.JFormattedTextField();
         labelEndereco1 = new javax.swing.JLabel();
         campoDataPagamentoDiaria = new javax.swing.JFormattedTextField();
@@ -188,10 +214,10 @@ public class TelaMatricula extends javax.swing.JFrame {
         labelNome9.setText("Login");
         labelNome9.setName("senha"); // NOI18N
 
-        buscarCPF.setText("Listar");
-        buscarCPF.addActionListener(new java.awt.event.ActionListener() {
+        listarModalidades.setText("Listar");
+        listarModalidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarCPFActionPerformed(evt);
+                listarModalidadesActionPerformed(evt);
             }
         });
 
@@ -254,10 +280,10 @@ public class TelaMatricula extends javax.swing.JFrame {
             }
         });
 
-        salvar.setText("Salvar");
-        salvar.addActionListener(new java.awt.event.ActionListener() {
+        inserir.setText("Salvar");
+        inserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarActionPerformed(evt);
+                inserirActionPerformed(evt);
             }
         });
 
@@ -332,9 +358,9 @@ public class TelaMatricula extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(399, 399, 399)
-                                .addComponent(salvar)
+                                .addComponent(inserir)
                                 .addGap(301, 301, 301)
-                                .addComponent(buscarCPF))
+                                .addComponent(listarModalidades))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(373, 373, 373)
                                 .addComponent(labelEndereco2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -392,11 +418,11 @@ public class TelaMatricula extends javax.swing.JFrame {
                                     .addComponent(labelNome8)
                                     .addComponent(campoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(salvar)
+                                .addComponent(inserir)
                                 .addContainerGap(12, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addComponent(buscarCPF)
+                                .addComponent(listarModalidades)
                                 .addGap(45, 45, 45))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,115 +459,116 @@ public class TelaMatricula extends javax.swing.JFrame {
 
     private void pilatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pilatesActionPerformed
         // TODO add your handling code here:
-         capTuraNome(pilates.getText());
-         capturaPreco(200);
-         this.contModalidades++;
+        capTuraNome(pilates.getText());
+        capturaPreco(200);
+        this.contModalidades++;
     }//GEN-LAST:event_pilatesActionPerformed
 
-    public Modalidade gravarModalidadeDiaria(){
-        ModalidadeDiaria modalidadeDiaria  = new ModalidadeDiaria(getCapturaTurma(),getCapturaDia(), getCapturaNome(),getCapturaPreco());
+    /*Método para gravar modalidade*/
+    public Modalidade gravarModalidadeDiaria() {
+        ModalidadeDiaria modalidadeDiaria = new ModalidadeDiaria(getCapturaTurma(), getCapturaDia(), getCapturaNome(), getCapturaPreco());
         listaModalidadeDiaria.add(modalidadeDiaria);
         JOptionPane.showMessageDialog(null, "Incluido com sucesso!");
-        
+
         return modalidadeDiaria;
     }
-    
-    public Modalidade gravarModalidadeLivre(){
-        ModalidadeLivre modalidadeLivre = new ModalidadeLivre(getCapturaNome(),getCapturaPreco());
+
+    public Modalidade gravarModalidadeLivre() {
+        ModalidadeLivre modalidadeLivre = new ModalidadeLivre(getCapturaNome(), getCapturaPreco());
         listaModalidadeLivre.add(modalidadeLivre);
         JOptionPane.showMessageDialog(null, "Incluido com sucesso!");
-        
-        
+
         return modalidadeLivre;
     }
-    
-    public Pagamento valorPagamento(String dataPagamento){
-        boolean estudante = false;
-        boolean parente = false;
-        for (int i=0; i< listaAluno.size();i++)
-            if(campoAluno.getModel().getSelectedItem().toString().equals(listaAluno.get(i).getNome())){
-                estudante = listaAluno.get(i).isEstudante();
-                parente = listaAluno.get(i).isParente();
-            }
-        
+
+    /*Método auxiliar para cálculo de desconto*/
+    public void calcularDesconto(String dataPagamento, boolean estudante, boolean parente) {
         Pagamento pag = new Pagamento();
         pag = new Pagamento(dataPagamento, getCapturaPreco());
-        pag.calcularDesconto(getCapturaPreco(),estudante,parente,contModalidades);
-        return pag;
-    }
-    
-            
-    public void limparModalidadeLivre(){
-       musculacao.setSelected(false);
-       pilates.setSelected(false);
-       this.nome = " ";/*resta a captura de nomes*/
-       this.preco = 0;
-    }
-    
-    public void limparModalidadeDiaria(){
-       ginastica.setSelected(false);
-       natacao.setSelected(false);
-       turma1_natacao.setSelected(false);
-       turma2_natacao.setSelected(false);
-       turma1_ginastica.setSelected(false);
-       turma2_ginastica.setSelected(false);
-       campoDataPagamentoDiaria.setText("");
-       
-       this.nome = " ";/*resta a captura de nomes*/
-       this.preco = 0;
-       this.turma = " ";
-       this.dia = " ";
+        pag.calcularDesconto(getCapturaPreco(), estudante, parente, contModalidades);
+        gravarPagamento(pag);
     }
 
     
-    public void listarLivre(){
-        if(listaModalidadeLivre!=null){
-        System.out.println("Modalidade livre\n");
-        for (int i=0; i< listaModalidadeLivre.size();i++){
-            System.out.println("Modalidade(s) :"+listaModalidadeLivre.get(i).getNome());
-            System.out.println("Preço :"+listaModalidadeLivre.get(i).getPreco());
-          
-            System.out.println(" ");          
-        }
-        }
+    /*limpar tela*/
+    public void limparModalidadeLivre() {
+        musculacao.setSelected(false);
+        pilates.setSelected(false);
+        campoDataPagamentoLivre.setText("");
+        this.nome = " ";/*resta a captura de nomes*/
+        this.preco = 0;
     }
     
-      public void listarDiaria(){
-        if(listaModalidadeDiaria!=null){
-        System.out.println("Modalidade livre\n");
-        for (int i=0; i< listaModalidadeDiaria.size();i++){
-            System.out.println("Modalidade(s): :"+listaModalidadeDiaria.get(i).getNome());
-            System.out.println("Preco sem desconto :"+listaModalidadeDiaria.get(i).getPreco());
-            System.out.println("Dias :"+listaModalidadeDiaria.get(i).getDiaTurma());
-            System.out.println("Turma(s) :"+listaModalidadeDiaria.get(i).getTurma());
-            System.out.println(" ");          
-        }
+    public void limparLogin() {
+        campoLogin.setText("");
+        campoSenha.setText("");
+    }
+
+    public void limparModalidadeDiaria() {
+        ginastica.setSelected(false);
+        natacao.setSelected(false);
+        turma1_natacao.setSelected(false);
+        turma2_natacao.setSelected(false);
+        turma1_ginastica.setSelected(false);
+        turma2_ginastica.setSelected(false);
+        campoDataPagamentoDiaria.setText("");
+
+        this.nome = " ";/*resta a captura de nomes*/
+        this.preco = 0;
+        this.turma = " ";
+        this.dia = " ";
+    }
+
+    
+    /*Métodos de listagem*/
+    public void listarLivre() {
+        if (listaModalidadeLivre != null) {
+            System.out.println("Modalidade livre\n");
+            for (int i = 0; i < listaModalidadeLivre.size(); i++) {
+                System.out.println("Modalidade(s) :" + listaModalidadeLivre.get(i).getNome());
+                System.out.println("Preço :" + listaModalidadeLivre.get(i).getPreco());
+
+                System.out.println(" ");
+            }
         }
     }
-    
-    public void listarMatricula(){
+
+    public void listarDiaria() {
+        if (listaModalidadeDiaria != null) {
+            System.out.println("Modalidade livre\n");
+            for (int i = 0; i < listaModalidadeDiaria.size(); i++) {
+                System.out.println("Modalidade(s): :" + listaModalidadeDiaria.get(i).getNome());
+                System.out.println("Preco sem desconto :" + listaModalidadeDiaria.get(i).getPreco());
+                System.out.println("Dias :" + listaModalidadeDiaria.get(i).getDiaTurma());
+                System.out.println("Turma(s) :" + listaModalidadeDiaria.get(i).getTurma());
+                System.out.println(" ");
+            }
+        }
+    }
+
+    public void listarMatricula() {
         System.out.println("Modalidade livre\n");
-        for (int i=0; i< listaMatricula.size();i++){
-            System.out.println("Login: :"+listaMatricula.get(i).getLogin());
-            System.out.println("Senha :"+listaMatricula.get(i).getSenha());
-            System.out.println("Aluno: :"+listaMatricula.get(i).getAluno().getNome());
-            System.out.println("Modalidade :"+listaMatricula.get(i).getModalidade().getNome());
-            System.out.println("Pagamento com desconto:"+listaMatricula.get(i).getPagamento().getValorPagamento());
-            System.out.println("Data pagamento:"+listaMatricula.get(i).getPagamento().getDataPagamento());
+        for (int i = 0; i < listaMatricula.size(); i++) {
+            System.out.println("Login: :" + listaMatricula.get(i).getLogin());
+            System.out.println("Senha :" + listaMatricula.get(i).getSenha());
+            System.out.println("Aluno: :" + listaMatricula.get(i).getAluno().getNome());
+            System.out.println("Modalidade :" + listaMatricula.get(i).getModalidade().getNome());
+            System.out.println("Pagamento com desconto:" + listaMatricula.get(i).getPagamento().getValorPagamento());
+            System.out.println("Data pagamento:" + listaMatricula.get(i).getPagamento().getDataPagamento());
             System.out.println(" ");
         }
-        
+
     }
-    
-    
-    private void buscarCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarCPFActionPerformed
+
+    /*Busca modalidades cadastradas*/
+    private void listarModalidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarModalidadesActionPerformed
         // TODO add your handling code here:
-       listarLivre();
-       listarDiaria();
-       listarMatricula();
-       limparModalidadeDiaria();
-       limparModalidadeLivre();
-    }//GEN-LAST:event_buscarCPFActionPerformed
+        listarLivre();
+        listarDiaria();
+        listarMatricula();
+        limparModalidadeDiaria();
+        limparModalidadeLivre();
+    }//GEN-LAST:event_listarModalidadesActionPerformed
 
     private void natacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_natacaoActionPerformed
         // TODO add your handling code here:
@@ -555,29 +582,35 @@ public class TelaMatricula extends javax.swing.JFrame {
         capturaPreco(250);
         this.contModalidades++;
     }//GEN-LAST:event_ginasticaActionPerformed
-
-    private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
+    
+    /*Botão para inserir modalidade*/
+    private void inserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirActionPerformed
         // TODO add your handling code here:
         String aluno = campoAluno.getModel().getSelectedItem().toString();
-        for(int i=0;i<listaAluno.size();i++){
-            if(listaAluno.get(i).getNome().equals(aluno)){
+        for (int i = 0; i < listaAluno.size(); i++) {
+            if (listaAluno.get(i).getNome().equals(aluno)) {
                 gravarAluno(listaAluno.get(i));
             }
         }
-        
-        if(natacao.isSelected()||ginastica.isSelected()){
-            Matricula matricula = new Matricula(campoLogin.getText(),campoSenha.getText(),getAluno(), gravarModalidadeDiaria(), valorPagamento(campoDataPagamentoDiaria.getText()));
+
+        if (natacao.isSelected() || ginastica.isSelected()) {
+            calcularDesconto(campoDataPagamentoDiaria.getText(),capturaEstudante(),capturaParente());
+            Matricula matricula = new Matricula(campoLogin.getText(), campoSenha.getText(), getAluno(), gravarModalidadeDiaria(),getPagamento());
             listaMatricula.add(matricula);
         }
-        
-        if (pilates.isSelected()||musculacao.isSelected()){
-            Matricula matricula = new Matricula(campoLogin.getText(),campoSenha.getText(),getAluno(), gravarModalidadeLivre(),valorPagamento(campoDataPagamentoLivre.getText()));
+
+        if (pilates.isSelected() || musculacao.isSelected()) {
+            calcularDesconto(campoDataPagamentoLivre.getText(),capturaEstudante(),capturaParente());
+            Matricula matricula = new Matricula(campoLogin.getText(), campoSenha.getText(), getAluno(), gravarModalidadeLivre(),getPagamento());
             listaMatricula.add(matricula);
+             
+
         }
-        
+
+        limparLogin();
         limparModalidadeDiaria();
         limparModalidadeLivre();
-    }//GEN-LAST:event_salvarActionPerformed
+    }//GEN-LAST:event_inserirActionPerformed
 
     private void turma1_natacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turma1_natacaoActionPerformed
         // TODO add your handling code here:
@@ -606,18 +639,17 @@ public class TelaMatricula extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabela;
     private javax.swing.JTable Tabela1;
-    private javax.swing.JButton buscarCPF;
     private javax.swing.JComboBox<String> campoAluno;
     private javax.swing.JFormattedTextField campoDataPagamentoDiaria;
     private javax.swing.JFormattedTextField campoDataPagamentoLivre;
     private javax.swing.JTextField campoLogin;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JCheckBox ginastica;
+    private javax.swing.JButton inserir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
@@ -627,10 +659,10 @@ public class TelaMatricula extends javax.swing.JFrame {
     private javax.swing.JLabel labelEndereco2;
     private javax.swing.JLabel labelNome8;
     private javax.swing.JLabel labelNome9;
+    private javax.swing.JButton listarModalidades;
     private javax.swing.JCheckBox musculacao;
     private javax.swing.JCheckBox natacao;
     private javax.swing.JCheckBox pilates;
-    private javax.swing.JButton salvar;
     private javax.swing.JLabel tituloTela1;
     private javax.swing.JLabel tituloTela3;
     private javax.swing.JCheckBox turma1_ginastica;

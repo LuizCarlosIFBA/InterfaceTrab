@@ -21,9 +21,9 @@ public class TelaAluno extends javax.swing.JFrame {
         initComponents();
     }
 
-    public TelaAluno(ArrayList<Aluno> lista) {
+    public TelaAluno(ArrayList<Aluno> listaAluno) {
         initComponents();
-        this.listaAluno = lista;
+        this.listaAluno = listaAluno;
     }
     /**
      * This method is called from within the constructor to initialize the form.
