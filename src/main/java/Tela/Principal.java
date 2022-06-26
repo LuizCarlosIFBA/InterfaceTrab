@@ -20,6 +20,10 @@ public class Principal extends javax.swing.JFrame {
     private ArrayList<Matricula> listaMatricula = new ArrayList<>();
     private ArrayList<ModalidadeDiaria> listaModalidadeDiaria = new ArrayList<>();
     private ArrayList<ModalidadeLivre> listaModalidadeLivre = new ArrayList<>();
+   
+    private ArrayList<Matricula> listaDevedores = new ArrayList<>();
+
+    
     /**
      * Creates new form principal
      */
@@ -35,6 +39,9 @@ public class Principal extends javax.swing.JFrame {
         this.listaMatricula = listaMatricula;
         this.listaModalidadeDiaria= listaModalidadeDiaria;
         this.listaModalidadeLivre= listaModalidadeLivre;
+        this.listaDevedores =listaDevedores;
+
+
     }
 
     /**
@@ -47,6 +54,8 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         cadastroPrincipal = new javax.swing.JDesktopPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         menuBar = new javax.swing.JMenuBar();
         Aluno = new javax.swing.JMenu();
         cadAluno = new javax.swing.JMenuItem();
@@ -58,6 +67,23 @@ public class Principal extends javax.swing.JFrame {
         pagarModalidade = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Alunos matriculados em 2 modalidades", "5% desconto"},
+                {"Alunos matriculados em 3 ou mais modalidades", "20% desconto"},
+                {"Estudantes", "10% desconto"},
+                {"Parentes(caso tenham pessoas da mesma família)", "10% desconto"},
+                {null, null}
+            },
+            new String [] {
+                "Descrição do desconto", "Percentual do desconto"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        cadastroPrincipal.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 60, 710, 130);
 
         Aluno.setMnemonic('f');
         Aluno.setText("Cadastro");
@@ -135,7 +161,9 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cadastroPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(cadastroPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +199,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void pagarModalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarModalidadeActionPerformed
         // TODO add your handling code here:
-      
+        TelaPagar telaPagar = new TelaPagar(listaMatricula,listaAluno);
+        telaPagar.setVisible(true);
     }//GEN-LAST:event_pagarModalidadeActionPerformed
 
     private void pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagarActionPerformed
@@ -226,6 +255,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem cadLogin;
     private javax.swing.JMenuItem cadMatricula;
     private javax.swing.JDesktopPane cadastroPrincipal;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JMenu login;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu pagar;

@@ -14,6 +14,15 @@ public class Pagamento
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
     private String dataPagamento;
     private float valorPagamento;
+    private boolean pago=false;
+
+    public boolean isPago() {
+        return pago;
+    }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
    
     public float getValorPagamento() {
         return valorPagamento;

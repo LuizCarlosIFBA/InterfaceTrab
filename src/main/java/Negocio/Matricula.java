@@ -19,18 +19,22 @@ import javax.swing.JOptionPane;
  * @version (um número da versão ou uma data)
  */
 public class Matricula
-{   private Aluno aluno;
+{   
     private Modalidade modalidade;
     private Pagamento pagamento;
-    private String login, senha;
+    private String login, senha, aluno;
+    private boolean matriculado=false;
 
     private ArrayList<Matricula> listaMatricula = new ArrayList<>();
-    
-    public Aluno getAluno() {
+    private ArrayList<ModalidadeDiaria> listaModalidadeDiaria = new ArrayList<>();
+    private ArrayList<ModalidadeLivre> listaModalidadeLivre = new ArrayList<>();
+    private ArrayList<Pagamento> listaPagamento = new ArrayList<>();
+
+    public String getAluno() {
         return aluno;
     }
 
-    public void setAluno(Aluno aluno) {
+    public void setAluno(String aluno) {
         this.aluno = aluno;
     }
 
@@ -65,12 +69,20 @@ public class Matricula
     public void setPagamento(Pagamento pagamento) {
         this.pagamento = pagamento;
     }
+
+    public boolean isMatriculado() {
+        return matriculado;
+    }
+
+    public void setMatriculado(boolean matriculado) {
+        this.matriculado = matriculado;
+    }
     
     public Matricula(){
     
     }
 
-    public Matricula(String login, String senha, Aluno aluno, Modalidade modalidade, Pagamento pagamento) {
+    public Matricula(String login, String senha, String aluno, Modalidade modalidade, Pagamento pagamento) {
         this.login = login;
         this.senha = senha;
         this.aluno = aluno;
@@ -90,6 +102,8 @@ public class Matricula
             }
         }
        
-    }    
+    }
+
+
 }
 

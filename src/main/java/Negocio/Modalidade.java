@@ -14,8 +14,16 @@ public class Modalidade
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
    
-    private String nome;
+    private String nome, aluno;
     private float preco;
+
+    public String getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(String aluno) {
+        this.aluno = aluno;
+    }
    
     public String getNome() {
         return nome;
@@ -37,9 +45,10 @@ public class Modalidade
       
     }
     
-    public Modalidade(String nome, float preco) {
+    public Modalidade(String nome, float preco, String aluno) {
         this.nome = nome;
         this.preco = preco;
+        this.aluno = aluno;
     }
     
     

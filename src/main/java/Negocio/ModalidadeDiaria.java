@@ -32,13 +32,10 @@ public class ModalidadeDiaria extends Modalidade
     public ModalidadeDiaria(){
     
     }
-    
-    
-    public ModalidadeDiaria(String turma, String diaTurma, String nome, float preco) {
-        super(nome, preco);
+
+    public ModalidadeDiaria(String turma, String diaTurma,String nome, float preco, String aluno) {
+        super(nome, preco, aluno);
         this.turma = turma;
         this.diaTurma = diaTurma;
-    }
-    
-    
+    }    
 }    

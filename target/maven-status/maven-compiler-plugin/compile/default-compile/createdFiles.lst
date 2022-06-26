@@ -8,12 +8,13 @@ Tela/TelaAlunoMenor.class
 Tela/TelaLogin.class
 Tela/TelaPagar.class
 Negocio/Pagamento.class
+Tela/TelaPagar$3.class
 Tela/Principal$1.class
 Tela/TelaAlunoMenor$1.class
 Tela/Principal.class
 Negocio/ModalidadeLivre.class
 Tela/Principal$5.class
-Tela/TelaPagars$1.class
+Tela/TelaPagar$4.class
 Tela/TelaAlunoMenor$2.class
 Tela/Principal$4.class
 Tela/TelaMatricula$5.class
@@ -26,11 +27,9 @@ Tela/TelaMatricula$2.class
 Negocio/Responsavel.class
 Tela/TelaPagar$2.class
 Negocio/Modalidade.class
-Tela/TelaPagars.class
 Negocio/Aluno.class
 Tela/TelaAluno$2.class
 Tela/TelaMatricula$7.class
-Tela/TelaMatricula$10.class
 Negocio/ModalidadeDiaria.class
 Tela/TelaMatricula.class
 Tela/Principal$6.class

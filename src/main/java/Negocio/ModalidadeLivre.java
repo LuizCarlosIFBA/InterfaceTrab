@@ -10,8 +10,8 @@ public class ModalidadeLivre extends Modalidade
     public ModalidadeLivre() {
     }
 
-    public ModalidadeLivre(String nome, float preco) {
-        super(nome, preco);
+    public ModalidadeLivre(String nome, float preco, String aluno) {
+        super(nome, preco, aluno);
     }
     
     
