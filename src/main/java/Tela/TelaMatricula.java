@@ -11,7 +11,6 @@ import Negocio.ModalidadeLivre;
 import Negocio.ModalidadeDiaria;
 import Negocio.Pagamento;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,7 +32,7 @@ public class TelaMatricula extends javax.swing.JFrame {
     private ArrayList<Modalidade> listaModalidade = new ArrayList<>();
     private ArrayList<ModalidadeDiaria> listaModalidadeDiaria = new ArrayList<>();
     private ArrayList<ModalidadeLivre> listaModalidadeLivre = new ArrayList<>();
-
+                       
     private ArrayList<Matricula> listaMatricula = new ArrayList<>();
 
     public TelaMatricula() {
@@ -480,7 +479,7 @@ public class TelaMatricula extends javax.swing.JFrame {
         listaModalidadeDiaria.add(diaria);
         listaModalidadeLivre.add(livre);
         /*revisar desconto*/
-        Pagamento pagamento = new Pagamento(campoDataPagamento.getText(),getCapturaPreco());
+        Pagamento pagamento = new Pagamento(getCapturaPreco());
         pagamento.calcularDesconto(getCapturaPreco(),capturaEstudante(),capturaParente(),contModalidades);
         Matricula matricula = new Matricula(campoLogin.getText(), campoSenha.getText(),aluno,diaria,pagamento);
         matricula.setMatriculado(true);

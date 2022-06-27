@@ -193,7 +193,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void cadLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadLoginActionPerformed
         // TODO add your handling code here:
-        TelaLogin telaLogin = new TelaLogin(listaMatricula);
+        TelaLogin telaLogin = new TelaLogin(listaMatricula,listaAluno);
         telaLogin.setVisible(true);
     }//GEN-LAST:event_cadLoginActionPerformed
 

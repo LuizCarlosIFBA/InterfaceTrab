@@ -4,6 +4,7 @@
  */
 package Tela;
 
+import Negocio.Aluno;
 import Negocio.Matricula;
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  */
 public class TelaLogin extends javax.swing.JFrame {
     private ArrayList<Matricula> listaMatricula = new ArrayList<>();
+    private ArrayList<Aluno> listaAluno = new ArrayList<>();
 
     /**
      * Creates new form TelaLogin
@@ -21,9 +23,10 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
     }
 
-    public TelaLogin(ArrayList<Matricula> matricula) {
+    public TelaLogin(ArrayList<Matricula> matricula, ArrayList<Aluno> aluno) {
         initComponents();
         this.listaMatricula=matricula;
+        this.listaAluno = aluno;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,11 +104,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     
     private void logarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logarActionPerformed
         // TODO add your handling code here:
         Matricula matricula = new Matricula();
-        matricula.acessar(campoLogin.getText(), campoSenha.getText(), listaMatricula);
+        matricula.acessar(campoLogin.getText(), campoSenha.getText(),listaMatricula);
     }//GEN-LAST:event_logarActionPerformed
 
     /**

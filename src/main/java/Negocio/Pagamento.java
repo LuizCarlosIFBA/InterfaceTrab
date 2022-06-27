@@ -12,7 +12,7 @@ package Negocio;
 public class Pagamento
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private String dataPagamento;
+    private int dia = 5;
     private float valorPagamento;
     private boolean pago=false;
 
@@ -32,20 +32,19 @@ public class Pagamento
         this.valorPagamento = valorPagamento;
     }
     
-    public String getDataPagamento() {
-        return dataPagamento;
+    public int getDataPagamento() {
+        return dia;
     }
 
-    public void setQtdModalidades(String dataPagamento) {
-        this.dataPagamento = dataPagamento;
+    public void setQtdModalidades(int dia) {
+        this.dia = dia;
     }
 
     public Pagamento() {
      
     }
     
-    public Pagamento(String dataPagamento,float valorPagamento) {
-        this.dataPagamento = dataPagamento;
+    public Pagamento(float valorPagamento) {
         this.valorPagamento = valorPagamento;
     }
     
@@ -69,6 +68,5 @@ public class Pagamento
         }            // code block
                           
     }
-    
     
 }

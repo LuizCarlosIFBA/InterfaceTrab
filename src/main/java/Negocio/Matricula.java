@@ -9,6 +9,8 @@ import Negocio.Modalidade;
 import Negocio.Aluno;
 import Negocio.Pagamento;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 
@@ -24,12 +26,9 @@ public class Matricula
     private Pagamento pagamento;
     private String login, senha, aluno;
     private boolean matriculado=false;
-
+   
     private ArrayList<Matricula> listaMatricula = new ArrayList<>();
-    private ArrayList<ModalidadeDiaria> listaModalidadeDiaria = new ArrayList<>();
-    private ArrayList<ModalidadeLivre> listaModalidadeLivre = new ArrayList<>();
-    private ArrayList<Pagamento> listaPagamento = new ArrayList<>();
-
+   
     public String getAluno() {
         return aluno;
     }
@@ -91,19 +90,20 @@ public class Matricula
         
     }
     
+    
     //MÉTODO ACESSO (TO-DO)
     public void acessar(String login, String senha, ArrayList<Matricula> matricula){
         this.listaMatricula = matricula;
-               
+
         for(int i=0;i<listaMatricula.size();i++){
             if(login.equals(listaMatricula.get(i).getLogin()) && senha.equals(listaMatricula.get(i).getSenha())){
                 JOptionPane.showMessageDialog(null,"Logado!!!");
-                break; 
             }
+                
         }
+      
        
     }
-
-
+                     
 }
 
